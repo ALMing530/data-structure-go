@@ -1,18 +1,18 @@
-package main
+package single_linked_list
 
 type node struct {
 	val  interface{}
 	next *node
 }
 
-type single_linked_list struct {
+type Single_linked_list struct {
 	head *node
 	tail *node
 	size int
 }
 
 //在链表尾添加
-func (list *single_linked_list) insertAfter(value interface{}) {
+func (list *Single_linked_list) InsertAfter(value interface{}) {
 	node := &node{
 		val:  value,
 		next: nil,
@@ -29,7 +29,7 @@ func (list *single_linked_list) insertAfter(value interface{}) {
 }
 
 //在链表头添加
-func (list *single_linked_list) insertBefore(value interface{}) {
+func (list *Single_linked_list) InsertBefore(value interface{}) {
 	node := &node{
 		val: value,
 	}
@@ -45,7 +45,7 @@ func (list *single_linked_list) insertBefore(value interface{}) {
 }
 
 //在指定索引处添加
-func (list *single_linked_list) insert(index int, value interface{}) {
+func (list *Single_linked_list) Insert(index int, value interface{}) {
 	if index >= list.size {
 		panic("index out of bounds")
 	}
@@ -66,7 +66,7 @@ func (list *single_linked_list) insert(index int, value interface{}) {
 }
 
 //通过值删除，如果有重复值只会删除第一个
-func (list *single_linked_list) delete(value interface{}) {
+func (list *Single_linked_list) Delete(value interface{}) {
 	var pre *node
 	current := list.head
 	for {
@@ -85,7 +85,7 @@ func (list *single_linked_list) delete(value interface{}) {
 }
 
 //删除指定索引处元素
-func (list *single_linked_list) deleteIndex(index int) {
+func (list *Single_linked_list) DeleteIndex(index int) {
 	pre, current := list.position(index)
 	pre.next = current.next
 	current = nil
@@ -93,7 +93,7 @@ func (list *single_linked_list) deleteIndex(index int) {
 
 //根据索引定位元素以及该元素的前置元素，删除时需要前置元素。（将前置元素与该元素后置元素链接）
 //因为是单向链表所以仅获取索引所在节点无法获得其前置节点
-func (list *single_linked_list) position(index int) (pre *node, current *node) {
+func (list *Single_linked_list) position(index int) (pre *node, current *node) {
 	size := list.size
 	pre = list.head
 	for i := 0; i < size; i++ {
