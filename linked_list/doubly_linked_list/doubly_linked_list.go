@@ -1,4 +1,4 @@
-package dual_link_list
+package doubly_linked_list
 
 type node struct {
 	val  interface{}
@@ -6,13 +6,13 @@ type node struct {
 	next *node
 }
 
-type Dual_linked_list struct {
+type DoublyLinkedList struct {
 	head *node
 	tail *node
 	size int
 }
 
-func (list *Dual_linked_list) InsertAfter(value interface{}) {
+func (list *DoublyLinkedList) InsertAfter(value interface{}) {
 	node := &node{
 		val: value,
 	}
@@ -28,7 +28,7 @@ func (list *Dual_linked_list) InsertAfter(value interface{}) {
 	}
 }
 
-func (list *Dual_linked_list) InsertBefore(value interface{}) {
+func (list *DoublyLinkedList) InsertBefore(value interface{}) {
 	node := &node{
 		val: value,
 	}
@@ -44,7 +44,7 @@ func (list *Dual_linked_list) InsertBefore(value interface{}) {
 	}
 }
 
-func (list *Dual_linked_list) Insert(index int, value interface{}) {
+func (list *DoublyLinkedList) Insert(index int, value interface{}) {
 	node := &node{
 		val: value,
 	}
@@ -62,7 +62,7 @@ func (list *Dual_linked_list) Insert(index int, value interface{}) {
 
 }
 
-func (list *Dual_linked_list) Delete(value interface{}) {
+func (list *DoublyLinkedList) Delete(value interface{}) {
 	current := list.head
 	for {
 		if current == nil {
@@ -79,7 +79,7 @@ func (list *Dual_linked_list) Delete(value interface{}) {
 		current = current.next
 	}
 }
-func (list *Dual_linked_list) DeleteIndex(index int) {
+func (list *DoublyLinkedList) DeleteIndex(index int) {
 	if index == list.size-1 {
 		list.tail = list.tail.pre
 		list.size--
@@ -95,7 +95,7 @@ func (list *Dual_linked_list) DeleteIndex(index int) {
 		}
 	}
 }
-func (list *Dual_linked_list) position(index int) *node {
+func (list *DoublyLinkedList) position(index int) *node {
 	len := list.size
 	if index >= len {
 		panic("index out of bound")

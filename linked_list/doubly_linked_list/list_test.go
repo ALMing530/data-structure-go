@@ -1,12 +1,12 @@
-package dual_link_list
+package doubly_linked_list
 
 import (
 	"fmt"
 	"testing"
 )
 
-func Test_list(t *testing.T) {
-	ls := new(Dual_linked_list)
+func TestList(t *testing.T) {
+	ls := new(DoublyLinkedList)
 	ls.InsertBefore(1)
 	ls.InsertBefore(2)
 	ls.InsertBefore(3)
